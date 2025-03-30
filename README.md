@@ -46,8 +46,7 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
    │   │   ├── index.ts
    │   │   ├── index.html
    │
-   │── dist/   # Esta carpeta se generará automáticamente con los archivos compilados asi que no hace falta que la crees,
-               # es solo para mostrar como quedará (forma recomendada)
+   │── dist/   # Esta carpeta se generará automáticamente con los archivos compilados asi que no hace falta que   la crees, es solo para mostrar como quedará (forma recomendada)
    │   ├── exercise1/
    │   │   ├── index.js
    │   ├── exercise2/
@@ -132,6 +131,11 @@ module.exports = {
   }
 };
 ```
+
+También suele ser recomendable instalar las siguientes extensiones aunque hayamos instalado las dependencias a nivel de proyecto:
+
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
 
 8. **Por último podríamos ejecutar los siguientes comandos para revisar errores en el código y de formato (Opcional y si hemos seguido el paso 7)**
 
