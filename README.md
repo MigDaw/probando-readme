@@ -31,7 +31,7 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
      ```
    - Esto debería devolver la versión de TypeScript instalada en tu máquina.
 
-4. **Estructura de carpetas recomendada**
+4. **Estructura de carpetas recomendada a crear**
 
    ```bash
    typescript-onboarding/
@@ -46,7 +46,7 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
    │   │   ├── index.ts
    │   │   ├── index.html
    │
-   │── dist/   # Se generará automáticamente con los archivos compilados
+   │── dist/   # Esta carpeta se generará automáticamente con los archivos compilados asi que no hace falta que la crees, es solo para mostrar como quedará (forma recomendada)
    │   ├── exercise1/
    │   │   ├── index.js
    │   ├── exercise2/
@@ -57,7 +57,6 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
    │── .eslintrc.cjs   # Configuración de ESLint
    │── .prettierrc     # Configuración de Prettier
    │── tsconfig.json   # Configuración de TypeScript
-   │── package.json    # Información del proyecto
    │── README.md       # Documentación del repositorio
 
 5. **Configurar TypeScript**
