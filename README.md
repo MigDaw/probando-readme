@@ -47,7 +47,7 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
    │   │   ├── index.html
    │
    │── dist/   # Esta carpeta se generará automáticamente con los archivos compilados asi que no hace falta que la crees,
-   es solo para mostrar como quedará (forma recomendada)
+               # es solo para mostrar como quedará (forma recomendada)
    │   ├── exercise1/
    │   │   ├── index.js
    │   ├── exercise2/
