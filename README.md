@@ -18,9 +18,9 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
 
    - Abre la terminal y ejecuta el siguiente comando:
 
-    ```bash
-     npm install -g typescript
-     ```
+   ```bash
+    npm install -g typescript
+   ```
 
 3. **Verificar la instalación:**
 
@@ -29,6 +29,7 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
      ```bash
      tsc --version
      ```
+
    - Esto debería devolver la versión de TypeScript instalada en tu máquina.
 
 4. **Estructura de carpetas recomendada a crear**
@@ -59,6 +60,8 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
    │── tsconfig.json   # Configuración de TypeScript
    │── README.md       # Documentación del repositorio
 
+   ```
+
 5. **Configurar TypeScript**
 
 - Genera un archivo de configuración para TypeScript con el siguiente comando:
@@ -66,7 +69,8 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
 ```bash
 tsc --init
 ```
-- Luego, edita el archivo tsconfig.json para que luzca así:
+
+- Luego, edita el archivo **tsconfig.json** para que luzca así:
 
 ```bash
 {
@@ -81,6 +85,7 @@ tsc --init
 ```
 
 6. **Compilar los archivos TypeScript**
+
 - Para compilar todos los ejercicios:
 
 ```bash
@@ -88,22 +93,26 @@ tsc
 ```
 
 - Si prefieres que TypeScript observe los archivos y los compile automáticamente cada vez que realices un cambio, puedes usar el modo **watch**:
+
 ```bash
 tsc --watch
 ```
+
 - Si usas **tsc --watch** desde el principio, no necesitarás compilar manualmente después. Cada vez que guardes un archivo o añadas un nuevo archivo .ts en la carpeta **solutions/**, el compilador se encargará de compilarlo automáticamente en la carpeta **dist/**.
 
 - Esto generará la carpeta **dist/** con los archivos compilados, manteniendo la misma estructura de **solutions/**.
 
 7. **Configurar Prettier y ESLint (Opcional, pero recomendado)**
-Para mejorar la calidad del código, puedes instalar Prettier y ESLint con:
+   Para mejorar la calidad del código, puedes instalar Prettier y ESLint con:
 
 ```bash
 npm install --save-dev prettier eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
-***Nota: estas configraciones pueden variarse y personalizarse a nuestro gusto***
 
-- Luego, crea el archivo .prettierrc con el siguiente contenido:
+**_Nota: estas configraciones pueden variarse y personalizarse a nuestro gusto_**
+
+- Luego, crea el archivo **.prettierrc** con el siguiente contenido:
+
 ```bash
 {
   "semi": true,
@@ -111,25 +120,30 @@ npm install --save-dev prettier eslint @typescript-eslint/parser @typescript-esl
   "trailingComma": "all"
 }
 ```
-- Ahora crea el archivo .eslintrc.cjs con esta configuración:
+
+- Ahora crea el archivo **eslint.config.cjs** con esta configuración:
 
 ```bash
-module.exports = {
-  env: {
-    browser: true,
-    es6: true
+const tsParser = require('@typescript-eslint/parser');
+const tsPlugin = require('@typescript-eslint/eslint-plugin');
+
+/** @type {import("eslint").FlatConfig[]} */
+module.exports = [
+  {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parser: tsParser,
+    },
+    plugins: {
+      '@typescript-eslint': tsPlugin,
+    },
+    rules: {
+      'no-unused-vars': 'warn',
+      'prefer-const': 'error',
+      '@typescript-eslint/no-explicit-any': 'warn',
+    },
   },
-  parser: "@typescript-eslint/parser",
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  rules: {
-    "no-unused-vars": "warn",
-    "prefer-const": "error",
-    "@typescript-eslint/no-explicit-any": "warn"
-  }
-};
+];
 ```
 
 También suele ser recomendable instalar las siguientes extensiones aunque hayamos instalado las dependencias a nivel de proyecto:
@@ -140,11 +154,13 @@ También suele ser recomendable instalar las siguientes extensiones aunque hayam
 8. **Por último podríamos ejecutar los siguientes comandos para revisar errores en el código y de formato (Opcional y si hemos seguido el paso 7)**
 
 - Para asegurarnos de que sigamos las reglas definidas en nuestro archivo de configuración **.eslintrc.cjs** ejecuta:
+
 ```bash
 npx eslint solutions/**/*.ts
 ```
 
 - Y para asegurarnos de que sigamos las reglas definidas en nuestro archivo de configuración **.prettierrc** ejecuta::
+
 ```bash
 npx prettier --write .
 ```
@@ -156,19 +172,21 @@ Si prefieres trabajar en un entorno de desarrollo más estructurado, puedes usar
 ### Pasos:
 
 1. **Crear un nuevo proyecto con Vite:**
+
    - Ejecuta el siguiente comando para crear un nuevo proyecto usando la plantilla de TypeScript:
 
      ```bash
      npm create vite@latest
      ```
-    - **1.1** Selecciona el nombre del proyecto
-    - **1.2** Selecciona el framework vanilla
-    - **1.3** Selecciona Typescript
 
-    - Esto creará una nueva carpeta con un proyecto de Vite configurado para TypeScript.
-   
+   - **1.1** Selecciona el nombre del proyecto
+   - **1.2** Selecciona el framework vanilla
+   - **1.3** Selecciona Typescript
+
+   - Esto creará una nueva carpeta con un proyecto de Vite configurado para TypeScript.
 
 2. **Instalar dependencias del proyecto:**
+
    - Accede a la carpeta del proyecto recién creado:
 
      ```bash
@@ -182,6 +200,7 @@ Si prefieres trabajar en un entorno de desarrollo más estructurado, puedes usar
      ```
 
 3. **Iniciar el servidor de desarrollo:**
+
    - Para comenzar a trabajar en tu proyecto, ejecuta:
 
      ```bash
