@@ -47,7 +47,7 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
    │   │   ├── index.ts
    │   │   ├── index.html
    │
-   │── dist/   # Esta carpeta se generará automáticamente con los archivos compilados asi que no hace falta que   la crees, es solo para mostrar como quedará (forma recomendada)
+   │── dist/   # Esta carpeta se generará automáticamente con los archivos compilados, así que no hace falta que la crees. Se muestra solo como referencia.
    │   ├── exercise1/
    │   │   ├── index.js
    │   ├── exercise2/
@@ -55,7 +55,7 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
    │   ├── exercise3/
    │   │   ├── index.js
    │
-   │── .eslintrc.cjs   # Configuración de ESLint
+   │── eslint.config.cjs   # Configuración de ESLint
    │── .prettierrc     # Configuración de Prettier
    │── tsconfig.json   # Configuración de TypeScript
    │── README.md       # Documentación del repositorio
@@ -109,15 +109,15 @@ tsc --watch
 npm install --save-dev prettier eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
-**_Nota: estas configraciones pueden variarse y personalizarse a nuestro gusto_**
+**_Nota: estas configuraciones pueden variarse y personalizarse a nuestro gusto_**
 
 - Luego, crea el archivo **.prettierrc** con el siguiente contenido:
 
 ```bash
 {
-  "semi": true,
-  "singleQuote": true,
-  "trailingComma": "all"
+  "semi": true, # Fuerza el uso de punto y coma al final de las líneas.
+  "singleQuote": true, # Usa comillas simples en lugar de dobles en strings.
+  "trailingComma": "all" # Agrega comas al final de listas y objetos para mejorar el control de versiones.
 }
 ```
 
@@ -211,3 +211,4 @@ Si prefieres trabajar en un entorno de desarrollo más estructurado, puedes usar
 
 4. **Desarrollo con Vite:**
    - Puedes comenzar a agregar y modificar archivos `.ts` en el proyecto. Los cambios se reflejarán automáticamente en el navegador gracias a la recarga en vivo de Vite.
+   - Esta opción es ideal si deseas un entorno de desarrollo más optimizado, con recarga en vivo y mejor integración con herramientas modernas.
