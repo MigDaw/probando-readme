@@ -111,7 +111,7 @@ npm install --save-dev prettier eslint @typescript-eslint/parser @typescript-esl
 
 **_Nota: estas configuraciones pueden variarse y personalizarse a nuestro gusto_**
 
-- Luego, crea el archivo **.prettierrc** con el siguiente contenido:
+- Luego, crea el archivo **.prettierrc** con el siguiente contenido (sin los comentarios):
 
 ```bash
 {
