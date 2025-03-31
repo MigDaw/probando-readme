@@ -34,33 +34,25 @@ La forma más sencilla para empezar a trabajar con TypeScript es instalarlo glob
 
 4. **Estructura de carpetas recomendada a crear**
 
-   ```bash
-   typescript-onboarding/
-   │── solutions/
-   │   ├── exercise1/
-   │   │   ├── index.ts
-   │   │   ├── index.html
-   │   ├── exercise2/
-   │   │   ├── index.ts
-   │   │   ├── index.html
-   │   ├── exercise3/
-   │   │   ├── index.ts
-   │   │   ├── index.html
-   │
-   │── dist/   # Esta carpeta se generará automáticamente con los archivos compilados, así que no hace falta que la crees. Se muestra solo como referencia.
-   │   ├── exercise1/
-   │   │   ├── index.js
-   │   ├── exercise2/
-   │   │   ├── index.js
-   │   ├── exercise3/
-   │   │   ├── index.js
-   │
-   │── eslint.config.cjs   # Configuración de ESLint
-   │── .prettierrc     # Configuración de Prettier
-   │── tsconfig.json   # Configuración de TypeScript
-   │── README.md       # Documentación del repositorio
+```bash
+typescript-onboarding/
+│── solutions/
+│   ├── exercise1/
+│   │   ├── index.ts
+│   │   ├── index.html
+│   ├── exercise2/
+│   │   ├── index.ts
+│   │   ├── index.html
+│   ├── exercise3/
+│   │   ├── index.ts
+│   │   ├── index.html
+```
 
-   ```
+- Ahora creareamos el archivo **package.json** que contendrá la configuración básica de nuestro proyecto con el comando:
+
+```bash
+npm init -y
+```
 
 5. **Configurar TypeScript**
 
@@ -100,70 +92,42 @@ tsc --watch
 
 - Si usas **tsc --watch** desde el principio, no necesitarás compilar manualmente después. Cada vez que guardes un archivo o añadas un nuevo archivo .ts en la carpeta **solutions/**, el compilador se encargará de compilarlo automáticamente en la carpeta **dist/**.
 
-- Esto generará la carpeta **dist/** con los archivos compilados, manteniendo la misma estructura de **solutions/**.
+- Una vez hayamos compilado se generará la carpeta **dist/** con los archivos compilados, manteniendo la misma estructura de **solutions/**.
 
 7. **Configurar Prettier y ESLint (Opcional, pero recomendado)**
-   Para mejorar la calidad del código, puedes instalar Prettier y ESLint con:
+  - Para mejorar la calidad del código, puedes instalar las extensiones de Prettier y ESLint:
+
+  - ESLint
+  ![Imagen ESLint](assets/img/eslint.png)
+
+  - Prettier
+  ![Imagen Prettier](assets/img/prettier.png)
+
+- Una vez tenemos las extensiones instaladas vamos a ejecutar el siguiente comando para crear un archivo de configurar eslint con el siguiente comando:
 
 ```bash
-npm install --save-dev prettier eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+npm init @eslint/config@latest
 ```
+- Este comando nos hará unas preguntas para que seleccionemos la configuración que queremos y una vez respondamos nos generará un archivo **eslint-config.mjs** con nuestra configuración.
 
-**_Nota: estas configuraciones pueden variarse y personalizarse a nuestro gusto_**
+- Nos quedará un resultado a las preguntas tal que así:
+![Imagen resultado preguntas](assets/img/resultado.png)
 
-- Luego, crea el archivo **.prettierrc** con el siguiente contenido (sin los comentarios):
+Una vez generado el archivo ya nos resaltará los posibles warnings y/o errores.
+
+- A continuación creamos el archivo **.prettierrc** con el siguiente contenido (sin los comentarios):
 
 ```bash
 {
   "semi": true, # Fuerza el uso de punto y coma al final de las líneas.
-  "singleQuote": true, # Usa comillas simples en lugar de dobles en strings.
+  "singleQuote": false, # Usa comillas simples en lugar de dobles en strings.
   "trailingComma": "all" # Agrega comas al final de listas y objetos para mejorar el control de versiones.
 }
 ```
 
-- Ahora crea el archivo **eslint.config.cjs** con esta configuración:
+- Para aplicar esta configuración a nuestros archivos una vez tengamos el archivo creado y la extensión instalada podemos usar el atajo **alt+shift+f** en Windows o **Ctrl+shift+i** en Linux indicandole al VSC cuando lo hagamos que queremos que use el formateador de Prettier.
 
-```bash
-const tsParser = require('@typescript-eslint/parser');
-const tsPlugin = require('@typescript-eslint/eslint-plugin');
-
-/** @type {import("eslint").FlatConfig[]} */
-module.exports = [
-  {
-    files: ['**/*.ts'],
-    languageOptions: {
-      parser: tsParser,
-    },
-    plugins: {
-      '@typescript-eslint': tsPlugin,
-    },
-    rules: {
-      'no-unused-vars': 'warn',
-      'prefer-const': 'error',
-      '@typescript-eslint/no-explicit-any': 'warn',
-    },
-  },
-];
-```
-
-También suele ser recomendable instalar las siguientes extensiones aunque hayamos instalado las dependencias a nivel de proyecto:
-
-- [ESLint](https://eslint.org/)
-- [Prettier](https://prettier.io/)
-
-8. **Por último podríamos ejecutar los siguientes comandos para revisar errores en el código y de formato (Opcional y si hemos seguido el paso 7)**
-
-- Para asegurarnos de que sigamos las reglas definidas en nuestro archivo de configuración **.eslintrc.cjs** ejecuta:
-
-```bash
-npx eslint solutions/**/*.ts
-```
-
-- Y para asegurarnos de que sigamos las reglas definidas en nuestro archivo de configuración **.prettierrc** ejecuta::
-
-```bash
-npx prettier --write .
-```
+**_Nota: Las configuraciones de los archivos prettier y eslint pueden variarse y personalizarse a nuestro gusto_**
 
 ## Opción 2: Crear un proyecto con Vite (Ideal para proyectos más grandes)
 
